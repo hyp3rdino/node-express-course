@@ -10,12 +10,14 @@ const mockUserData=[
 ];
 
 
-app.get('/users', function(req,res){
+app.get('/users/:id', (req,res) => {
+    console.log(req.params.id);
     res.json({
         success: true,
         message: 'successfully got users. Nice!',
-        users: mockUserData
+        user: req.params.id
     })
 });
 
 app.listen(5101, () => console.log('server up!'));
+
